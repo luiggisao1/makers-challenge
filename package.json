@@ -1,9 +1,9 @@
 {
   "name": "makers-challenge",
   "version": "1.0.0",
-  "main": "./dist/index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "start": "npx tsc && node ./dist/index.js",
+    "start": "npx tsc && node dist/index.js",
     "build": "tsc",
     "dev": "nodemon ./src/index.ts"
   },
