@@ -1,7 +1,7 @@
 {
   "name": "makers-challenge",
   "version": "1.0.0",
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "start": "npx tsc && node dist/index.js",
     "build": "tsc",
@@ -19,6 +19,7 @@
   "homepage": "https://github.com/luiggisao1/makers-challenge#readme",
   "description": "",
   "dependencies": {
+    "ejs": "^3.1.10",
     "express": "^5.1.0"
   },
   "devDependencies": {
