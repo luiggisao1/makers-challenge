@@ -42,8 +42,8 @@ app.get("/phase-change-diagram", (req, res) => {
     const specificVolumeVapor = (parseFloat(pressure) - bSaturatedVapor) / slopeSaturatedVapor;
 
     res.json({
-      specific_volume_liquid: specificVolumeLiquid.toFixed(5),
-      specific_volume_vapor: specificVolumeVapor.toFixed(5)
+      specific_volume_liquid: parseFloat(specificVolumeLiquid.toPrecision(5)),
+      specific_volume_vapor: parseFloat(specificVolumeVapor.toPrecision(5))
     });
   }
 });
