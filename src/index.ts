@@ -28,6 +28,26 @@ app.post('/teapot', (_, res) => {
   res.status(418).send();
 });
 
+app.get("/phase-change-diagram", (req, res) => {
+  const slopeSaturatedLiquid = 4061.22449
+  const bSaturatedLiquid = -4.214285714
+  const slopeSaturatedVapor = -0.3317053656
+  const bSaturatedVapor = 10.00116097
+  const pressure = req.query.pressure as string;
+
+  if (!pressure) {
+    res.status(400).send("Pressure query parameter is required");
+  } else {
+    const specificVolumeLiquid = (parseFloat(pressure) - bSaturatedLiquid) / slopeSaturatedLiquid;
+    const specificVolumeVapor = (parseFloat(pressure) - bSaturatedVapor) / slopeSaturatedVapor;
+
+    res.json({
+      specific_volume_liquid: specificVolumeLiquid.toFixed(5),
+      specific_volume_vapor: specificVolumeVapor.toFixed(5)
+    });
+  }
+});
+
 app.listen(3000, () => {
   console.log('Server is running on port 3000');
 });
